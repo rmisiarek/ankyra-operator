@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ankyra-operator
+  labels:
+    app: ankyra-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ankyra-operator
+  template:
+    metadata:
+      labels:
+        app: ankyra-operator
+    spec:
+      containers:
+        - name: ankyra
+          image: docker.io/rmisiarek/ankyra-operator:0.1
